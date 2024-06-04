@@ -53,13 +53,29 @@ namespace Test1
             m.Add("hihi", 2345);
             m.Add("kiki", 54435);
             m.Add("siuu", 7);
-            foreach ( KeyValuePair<string, int> k in m)
+            foreach (KeyValuePair<string, int> k in m)
             {
-                Console.WriteLine(k.Key+" "+k.Value);
+                Console.WriteLine(k.Key + " " + k.Value);
             }
             int l = 0;
             int r = 6;
-            swap<int >(ref l, ref r);
+            swap<int>(ref l, ref r);
+            var s = Tuple.Create<int, string>(l, "hahgo");
+            var z = new Tuple<int,int,int>(DateTime.Now.Day, DateTime.Now.Month,DateTime.Now.Year);
+           Console.WriteLine("bien z"+z.Item1+" "+z.Item2+" "+z.Item3);
+            var now = checkcurrentyear();
+            Console.WriteLine(now.ToString());
+            Console.WriteLine($"ngay = {now.Item1}/thang = {now.Item2}/nam = {now.Item3}");
+            Console.WriteLine($"gio = {now.Item4}/phut = {now.Item5}/giay = {now.Item6}");
+       
+        
         }
+        static Tuple<int, int , int ,int ,int, int> checkcurrentyear()
+        {
+            DateTime a = DateTime.Now;
+            return new Tuple<int, int, int,int,int,int>(a.Day, a.Month, a.Year,a.Hour, a.Minute, a.Second);
+            
+        }
+    
     }
 }
